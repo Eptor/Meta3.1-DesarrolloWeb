@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const activoController = require('../controladores/activoController');
+const activoController = require('../controllers/activoController');
 
 router.get('/', activoController.listarActivos);
 router.get('/:id', activoController.obtenerActivo);

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ubicacionController = require('../controladores/ubicacionController');
+const ubicacionController = require('../controllers/ubicacionController');
 
 router.get('/', ubicacionController.listarUbicacions);
 router.get('/:id', ubicacionController.obtenerUbicacion);

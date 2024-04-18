@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const responsableController = require('../controladores/responsableController');
+const responsableController = require('../controllers/responsableController');
 
 router.get('/', responsableController.listarResponsables);
 router.get('/:id', responsableController.obtenerResponsable);
