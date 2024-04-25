@@ -74,9 +74,23 @@ const Activo = sequelize.define('Activo', {
     }
 });
 
+const Tag = sequelize.define('Tag', {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+});
+
 // Relaciones
 Activo.belongsTo(Ubicacion, { foreignKey: 'ubicacionId' });
 Activo.belongsTo(Responsable, { foreignKey: 'responsableId' });
+Activo.belongsToMany(Tag, { through: 'ActivoTag' });
+Tag.belongsToMany(Activo, { through: 'ActivoTag' });
 
 (async () => {
     try {
@@ -86,6 +100,5 @@ Activo.belongsTo(Responsable, { foreignKey: 'responsableId' });
         console.error('Error al sincronizar modelos con la base de datos:', error);
     }
 })();
-
 
 module.exports = sequelize;
